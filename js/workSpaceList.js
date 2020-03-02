@@ -78,9 +78,6 @@ function updateWorkSpaceList(startLetter){
 		
 		personName.classList.add("workSpaceList_PersonName");
 		personName.innerHTML = selectedWorkSpaceList[i];
-		personName.addEventListener("click",function(){
-			showWorkSpaceDetails(workSpaceList_SelectedType,i);
-		});
 		if(top == "27vw") personName.style.top = (parseInt(top)-5)+"vw";
 		else personName.style.top = (parseInt(top)-4.5)+"vw";
 		container.appendChild(personName);
