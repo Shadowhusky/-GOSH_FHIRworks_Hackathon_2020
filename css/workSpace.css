@@ -1,26 +1,21 @@
-.workSpaceIcon {
+.menuIcons {
     position: absolute;
     width: 28vw;
     transform: translateX(-50%) translateY(-50%);
 }
 
-#workSpace_Leisure {
+#menuIcon_Patients {
 	left: 34%;
     top: 35.5%;
 }
 
-#workSpace_Bussiness {
+#menuIcon_Search {
 	left: 67%;
     top: 35.5%;
 }
 
-#workSpace_Favourite {
+#menuIcon_Saved {
 	left: 34%;
-    top: 69%;
-}
-
-#workSpace_WC {
-	left: 67%;
     top: 69%;
 }
 
