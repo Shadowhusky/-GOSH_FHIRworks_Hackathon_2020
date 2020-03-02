@@ -1,0 +1,57 @@
+.workSpaceIcon {
+    position: absolute;
+    width: 28vw;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+#workSpace_Leisure {
+	left: 34%;
+    top: 35.5%;
+}
+
+#workSpace_Bussiness {
+	left: 67%;
+    top: 35.5%;
+}
+
+#workSpace_Favourite {
+	left: 34%;
+    top: 69%;
+}
+
+#workSpace_WC {
+	left: 67%;
+    top: 69%;
+}
+
+.workSpaceList_Background {
+	background-Color: rgba(150,150,150,0.20);
+	position: absolute;
+    width: 56vw;
+    height: 13.6vh;
+	transform: translateX(-50%) translateY(-50%);
+	left: 50%;
+	border-radius: 4vw;
+}
+
+.workSpaceList_PersonName {
+	position: absolute;
+	color: #707070;
+	font-size: 5vw;
+    font-family: monospace;
+    transform: translateX(-50%) translateY(-50%);
+    left: 50%;
+    z-index: 1;
+    color: white;
+}
+
+#WorkSpaceList {
+	overflow-y: auto;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+#WorkSpaceList::-webkit-scrollbar { 
+	display: none; 
+} 

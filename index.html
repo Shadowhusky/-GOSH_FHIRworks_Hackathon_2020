@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+	<meta name="description" content="App"/>
+    <title>Home</title>
+  	<link rel="stylesheet" href="css/tau.css"/>
+
+  	<link rel="stylesheet" type="text/css" href="css/watch.css" />
+    <link rel="stylesheet" type="text/css" href="css/workSpace.css" />
+    <link rel="stylesheet" type="text/css" href="css/workSpaceList.css" />
+</head>
+
+<body>
+	<div class="ui-page ui-page-active" id="workplaceType">
+	   <div class="ui-content">
+	       <div class="container">
+	        <div class="background">
+	            <div class="components-main">
+	            	<p class="page_Title" id="PeopleList_Page_Title">Menu</p>
+	            	<p class="page_CurrentTime" id="PeopleList_Page_CurrentTime">00:00</p>
+	            	<div id="toolBar">
+	            	<a class="linkWithoutStyle" href="#peopleListPage">
+	                	<img class="toolBar_Left" src="image/ToolBar1.png"></img>
+	                </a>
+	                <a class="linkWithoutStyle" href="#main">
+	                	<img class="toolBar_Right" src="image/ToolBar2.png"></img>
+	                </a>
+	                </div>
+	                <div>	<!-- WorkSpace Type Icons -->
+	                	<img class="workSpaceIcon" id="workSpace_Leisure" src="image/workPlaceIcons/Leisure.png" onclick="selectWorkSpaceType('Rest')"></img>
+	                	<img class="workSpaceIcon" id="workSpace_Bussiness" src="image/workPlaceIcons/Bussiness.png" onclick="selectWorkSpaceType('Work')"></img>
+	                	<img class="workSpaceIcon" id="workSpace_Favourite" src="image/workPlaceIcons/Favourite.png"  onclick="selectWorkSpaceType('Fav')"></img>
+	                	<img class="workSpaceIcon" id="workSpace_WC" src="image/workPlaceIcons/WC.png"  onclick="selectWorkSpaceType('WC')"></img>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	   </div>
+	</div>
+	
+	<div class="ui-page" id="workplaceListPage">
+	   <div class="ui-content">
+	       <div class="container">
+	        <div class="background">
+	            <div class="components-main">
+	            	<p class="page_Title" id="WorkSpaceList_Page_Title">Type</p>
+	            	<p class="page_CurrentTime" id="WorkSpaceList_Page_CurrentTime">00:00</p>
+	            	<div id="toolBar">
+	            	<a class="linkWithoutStyle" href="#peopleListPage">
+	                	<img class="toolBar_Left" src="image/ToolBar1.png"></img>
+	                </a>
+	                <a class="linkWithoutStyle" href="#workplaceType">
+	                	<img class="toolBar_Right" src="image/ToolBar2.png"></img>
+	                </a>
+	                </div>
+	                <div id="WorkSpaceList">	
+	                	<!-- WorkSpace List-->
+	                </div>
+	               	<div id="FirstLetterNameSelector">
+	               		<p id="PreviousLetter"><!--Letter--></p>
+	               		<p id="CurrentLetter"><!--Letter--></p>
+	               		<p id="NextLetter"><!--Letter--></p>
+	               	</div>
+	            </div>
+	        </div>
+	    </div>
+	   </div>
+	</div>
+	
+	<div class="ui-page" id="workSpaceDetails">
+	   <div class="ui-content">
+	       <div class="container">
+	        <div class="background">
+	            <div class="components-main">
+	            	<img class="Details_Page_BG" src="image/personalDetails_bg.png"></img>
+	            	<img class="Details_Page_NevigationIcon" src="image/personalDetails_NevigationIcon.png"></img>
+	            	<p class="Details_Page_Position">Position</p>
+	            	<p class="page_CurrentTime Details_Page_CurrentTime">00:00</p>
+	            	<div id="toolBar">
+	            	<a class="linkWithoutStyle" href="#peopleListPage">
+	                	<img class="toolBar_Left" src="image/ToolBar1.png"></img>
+	                </a>
+	                <a class="linkWithoutStyle" href="#workplaceType">
+	                	<img class="toolBar_Right" src="image/ToolBar2.png"></img>
+	                </a>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	   </div>
+	</div>
+	
+    
+ 	<script type="text/javascript" src="js/tau.js"></script>
+ 	
+
+    <script src="js/rotaryEvent.js"></script>
+    <script src="js/workSpaceList.js"></script>
+    <script src="js/backButtonEvents.js"></script>
+    
+</body>
+</html>
