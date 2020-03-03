@@ -5,10 +5,17 @@ let patientsBasicInfo =
 			"Name" : ""} 
 	];
 
+let tauAnimation = tau.animation.target;
+let numberOfUpdatingAttempts = 0;
+let limitOfAttempts = 3;
+
+//Determine whether to use patientList saved in localStorage from last initialization, turned off will request the list from cloud every time initializing
+let	allowReadPatientsListFromLocal = false; 
+
 function getPatients() {
 	
 	//If a copy of patientsList exist in localStorage, using it directly(May not be the most updated one, update feature can be implements in the future)
-	if(localStorage.getItem("patientsList")!=null) {
+	if(allowReadPatientsListFromLocal && localStorage.getItem("patientsList")!=null) {
 		try{
 			PatientsListArray = JSON.parse(localStorage.getItem("patientsList"));
 		}catch (e) {
@@ -24,20 +31,37 @@ function getPatients() {
 	$("#iniWindowBG")[0].style.visibility = "visible";
 	
 	iniWindowBlur(true);
-		
+
+	//Connecting to the API
+	changeIniWindowText("Connecting to server...");
+
 	const url = "https://husky1.azurewebsites.net/api/Patient/";	//To trust local, enter 'dotnet dev-certs https --trust' on the API side
 	
     const userAction = async () => {
-
-        const response = await fetch(url);
+    	
+    	try{
+    		const response = await fetch(url);
+    	}catch (e) {
+			alert(e);
+			return;
+		}
+        
+    	changeIniWindowText("Reveieved response from server.");	
 
         switch(response.status) {
             //200 means the REST API successfully carried out whatever action the client requested
             case 200:
+            	changeIniWindowText("Processing raw data...");	
                 const myJson = await response.json(); //extract JSON from the http response
                 return myJson;
             default:
-                return "Failed to update";
+            	changeIniWindowText("Failed to get data, making another attempt...");	
+            	if(numberOfUpdatingAttempts<limitOfAttempts) {
+            		getPatients();
+            	}	else {
+            		changeIniWindowText("Achieved maximum number of attempts, updating failed");	
+            		return "Failed to update";
+            	}
           }
     }
 
@@ -47,10 +71,13 @@ function getPatients() {
 
 function iniWindowBlur(bool) {
 	if(bool) {
-		$("#MenuPage_Title")[0].style.filter="blur(2px)";
-		$("#MenuPage_CurrentTime")[0].style.filter="blur(2px)";
-		$("#menuIcon_ALL")[0].style.filter="blur(2px)";
-		$("#menuIcon_Starred")[0].style.filter="blur(2px)";
+		$("#iniWindowBG")[0].style.visibility = "visible";
+		$("#iniWindowCurrentTask")[0].style.visibility = "visible";
+		let blurValue = "blur(3px)";
+		$("#MenuPage_Title")[0].style.filter=blurValue;
+		$("#MenuPage_CurrentTime")[0].style.filter=blurValue;
+		$("#menuIcon_ALL")[0].style.filter=blurValue;
+		$("#menuIcon_Starred")[0].style.filter=blurValue;
 	}else{
 		$("#MenuPage_Title")[0].style.filter="none";
 		$("#MenuPage_CurrentTime")[0].style.filter="none";
@@ -61,17 +88,29 @@ function iniWindowBlur(bool) {
 
 
 function processReturnedData(myJson) {
+	if(myJson=="Failed to update") {
+		return;
+	}
     let patientsBasicInfo = extractPatientsBasicInfo(myJson);
-    console.log(patientsBasicInfo);
+    changeIniWindowText("Extracting patients name...");
     //Extract patients' given name to list
     for(let i in patientsBasicInfo) {
     	PatientsListArray[0].push(patientsBasicInfo[i].name[0].given[0]);
     }
+    changeIniWindowText("Update Complete.");	
     //Store patientsList in local storage
     localStorage.setItem("patientsList", JSON.stringify(PatientsListArray))
     //Close iniWindow and remove Blur filter
-    $("#iniWindowBG")[0].style.visibility = "hidden";
-    iniWindowBlur(false);
+    
+    //Animation: tranfer the BG's Opacity to zero
+    tauAnimation('#iniWindowCurrentTask').tween({opacity:[1,0]}, 1000);
+    tauAnimation('#iniWindowBG').tween({opacity:[0.2,0]}, 1000, {
+        onComplete: function() {
+            $("#iniWindowBG")[0].style.visibility = "hidden";
+            $("#iniWindowCurrentTask")[0].style.visibility = "hidden";
+            iniWindowBlur(false);
+        }
+    });
  }
 
 function extractPatientsBasicInfo(myJson) {
@@ -83,6 +122,10 @@ function extractPatientsBasicInfo(myJson) {
 		}
 	}
 	return patientsInfo;
+}
+
+function changeIniWindowText(text) {
+	$("#iniWindowCurrentTask")[0].innerHTML=text;
 }
 
 

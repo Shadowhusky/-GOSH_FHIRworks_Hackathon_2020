@@ -56,6 +56,15 @@
     visibility: hidden;
 }
 
-.blurWhenIni {
-	
+#iniWindowCurrentTask {
+    font-size: 7vw;
+    margin-top: 0;
+    left: 50%;
+    top: 50%;
+    position: absolute;
+    z-index: 1;
+    transform: translateX(-50%) translateY(-50%);
+    visibility: hidden;
+    width: 100%;
+    text-align: center;
 }

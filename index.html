@@ -20,7 +20,10 @@
 	            <div class="components-main">
 	            	<p class="page_Title" id="MenuPage_Title">Menu</p>
 	            	<p class="page_CurrentTime" id="MenuPage_CurrentTime">00:00</p>
-	            	<img id="iniWindowBG" src="image/iniWindow.png">
+	            	<div iniWindow>
+	            		<img id="iniWindowBG" src="image/iniWindow.png">
+	            		<p id="iniWindowCurrentTask">Preparing</p>>
+	            	</div>
 	                <div>	<!-- WorkSpace Type Icons -->
 	                	<img class="menuIcons" id="menuIcon_ALL" src="image/menuIcons/menu_ALL.png" onclick="selectWorkSpaceType('All')"></img>
 	                	<img class="menuIcons" id="menuIcon_Starred" src="image/menuIcons/menu_Starred.png"  onclick="selectWorkSpaceType('Starred')"></img>
@@ -55,6 +58,7 @@
 	
     
  	<script type="text/javascript" src="js/tau.js"></script>
+ 	<script src="js/tau.animation.js"></script>
  	
  	<script src="js/jquery-3.4.1.min.js"></script>
  	<script src="js/headBar_Clock.js"></script>
