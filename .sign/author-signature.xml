@@ -16,11 +16,11 @@
 </Reference>
 <Reference URI="config.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>+GOi/Uvh2SXSeBToDxI58W2sM+v4lObiFBgGaNeJu38=</DigestValue>
+<DigestValue>r7WgUdOzqSGk1SJBw7aI+eQSiIrEcYy2Ra+wZDFHXc8=</DigestValue>
 </Reference>
 <Reference URI="css%2Fmenu.css">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>4uz0y6GQ9RStXLTONfBccoW181SJFt+Hp8pvpbGqglI=</DigestValue>
+<DigestValue>OgAA4hWQp6Ku9zGAv3cam/0FsEqub5svEYZ9cVDHKZc=</DigestValue>
 </Reference>
 <Reference URI="css%2FpatientsList.css">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -72,7 +72,7 @@
 </Reference>
 <Reference URI="js%2FgetPatients.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>KxyXreati/PqOH/+3Fim54Yq+cM8LlEjW3pcVhNPV2I=</DigestValue>
+<DigestValue>KiMQJk4BLdOOyEJ+GkGk/sW48NfByhNy9jkNKyC3BYc=</DigestValue>
 </Reference>
 <Reference URI="js%2FheadBar_Clock.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -111,11 +111,11 @@
 </Reference>
 </SignedInfo>
 <SignatureValue>
-R4zmCBX0i83c5bILGNHK4PxWH7tyPaGzJJxk9G6zxrhl5RQ02AKHyLQ6r7xG84A7muM60O1XezFi
-dMrieKMTwVWKZJIeEosnKyQEwBwMHjWXzVpYTKQ7w0sHdEvA7IqlqjYuKUx3ps5dYoCjinm0AZMW
-7oero+PNfphR/vgAJZd1NdLpCd1Ym/GtHT6FiylcfA3rSYd0hnTRswCKnYWTvO85Z4IoED97uKI1
-IOaYsQ4wSrKgGfNgkoUE/StAE9VoYUR3343lfmUKY+0HxnXo7juLzmAMthScGYbkb2CF7cXHej9s
-gN6q0grk7QOOnLA9fKlErRzN9E4ae0+COZ3S/w==
+IMkDZ7xbA2rE7N3LiCzM7LZGnFC4ZOz9XCiEPwIwm+k+5veOA4mSwqNePsUjWB1LwjmV2Mcq64h3
+wL8hgLjWhvkQW877fA/Wrxs7KcSDwE2rFTxQK5sUkzdWnVRaXxWXyqO05vJZ3LWwaDj3TEjDe4ud
+tyTwji7iDRDGTxZwLnuv8cnW2Taa7G3ETpXLlhRV4P6gXQhx07YosELoTDhx5BM9e/y9COsmES7X
+Z1fiCoZ0IaisNpz9r9kb7jea/lIex5yojzf+E7iXdIXcvpCgbltc5hPWmiQlYm0g7AoDR1XXKnpx
+ERjJuG099cpZBKIKLKBcJvdTJxKG19hMMscthg==
 </SignatureValue>
 <KeyInfo>
 <X509Data>

@@ -16,15 +16,15 @@
 </Reference>
 <Reference URI="author-signature.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>Xu26jDtXZSptBtETeNYs2ZvNrZ4urxK1DswoRlXKfcw=</DigestValue>
+<DigestValue>ayrPlqmd/uEL9x8Bz62BM0BohCfGWXxV9Ma91z8UoR4=</DigestValue>
 </Reference>
 <Reference URI="config.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>+GOi/Uvh2SXSeBToDxI58W2sM+v4lObiFBgGaNeJu38=</DigestValue>
+<DigestValue>r7WgUdOzqSGk1SJBw7aI+eQSiIrEcYy2Ra+wZDFHXc8=</DigestValue>
 </Reference>
 <Reference URI="css%2Fmenu.css">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>4uz0y6GQ9RStXLTONfBccoW181SJFt+Hp8pvpbGqglI=</DigestValue>
+<DigestValue>OgAA4hWQp6Ku9zGAv3cam/0FsEqub5svEYZ9cVDHKZc=</DigestValue>
 </Reference>
 <Reference URI="css%2FpatientsList.css">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -76,7 +76,7 @@
 </Reference>
 <Reference URI="js%2FgetPatients.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>KxyXreati/PqOH/+3Fim54Yq+cM8LlEjW3pcVhNPV2I=</DigestValue>
+<DigestValue>KiMQJk4BLdOOyEJ+GkGk/sW48NfByhNy9jkNKyC3BYc=</DigestValue>
 </Reference>
 <Reference URI="js%2FheadBar_Clock.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -115,11 +115,11 @@
 </Reference>
 </SignedInfo>
 <SignatureValue>
-n7DFgXytWKiplzZ6vJFLIXgQCAUQPjZV6vEn2UstcYDM0MV3AXvxaworGbUd5vjvo7M5jnkyTNO9
-D8KNa4/H4Vvp73z7/hQoqDeAI1RALO8zRaXGhbW16ajxeYPNMwNTZQu6YsHZz9UepVwHVAMl98S7
-z4Vlw4QAdC28Y6oA8Mkgmhb19sFHerlm8uQ9s378887KLu/VXP4Ow6Epfb9+jukdMFTWXklr+RgV
-S/IAW3eZ0hcyfAbj0ndh+Ft9CnDLHYKc8a2riVqLBsNcPZL8rUk6SqHyJyWrp7ONwba1KPtAPxGJ
-xoxosN6bPZ9q2x3qDs8tKduwhw7QIBwO52Chew==
+T/T/ItuFqifvniriQjLExoozN/zRGTOwrwVXHWUWWfqGSyFjowDAPqMraA+lCncDQtXR7o8t3NJk
+0ORG5ael/CHb/XFw1KtVNVkTIGVjIoU/W9t6/rkJR7OShJx8B6/GjxTSmJOanOoawpnEUCEr7TWY
+7NwC7qbm6pf+5MdVm2i9nNVsaiNo+njhJPtySknH7R9PEvg92KV6qV8zfPlPi60pIebkFnj/M5md
+4DbIh1Fk/JiN7p35ye2UHnW7+hyY3FvgHChP3H4eP6QlRvaVH1uPhGZMAPaB2kXJluc/4TjQ1AZp
+dLMsRnVbaW01mCIiCrklmG0abZ01I5PHjzT/GA==
 </SignatureValue>
 <KeyInfo>
 <X509Data>
