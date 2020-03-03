@@ -13,38 +13,6 @@
 	left: 71.5vw;
 }
 
-.workSpaceList_Background {
-	background-Color: rgba(150,150,150,0.20);
-	position: absolute;
-    width: 56vw;
-    height: 13.6vh;
-	transform: translateX(-50%) translateY(-50%);
-	left: 50%;
-	border-radius: 4vw;
-}
-
-.workSpaceList_PersonName {
-	position: absolute;
-	color: #707070;
-	font-size: 5vw;
-    font-family: monospace;
-    transform: translateX(-50%) translateY(-50%);
-    left: 50%;
-    z-index: 1;
-    color: white;
-}
-
-#WorkSpaceList {
-	overflow-y: auto;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-}
-
-#WorkSpaceList::-webkit-scrollbar { 
-	display: none; 
-} 
-
 #iniWindowBG {
 	width: 91%;
     left: 50%;
@@ -67,4 +35,15 @@
     visibility: hidden;
     width: 100%;
     text-align: center;
+}
+
+#synchronizeIcon {
+	position: absolute;
+    width: 18%;
+    height: 18%;
+    left: 50%;
+    top: 82%;
+    transform: translateX(-50%) translateY(-50%);
+    opacity: 0.5;
+    filter: grayscale(0.6);
 }

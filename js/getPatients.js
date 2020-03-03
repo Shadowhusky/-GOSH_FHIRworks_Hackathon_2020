@@ -1,22 +1,14 @@
-let patientsBasicInfo = [{
-    "ID": "",
-    "Name": ""
-}, {
-    "ID": "",
-    "Name": ""
-}];
-
 let tauAnimation = tau.animation.target;
 let numberOfUpdatingAttempts = 0;
 let limitOfAttempts = 3;
 
 //Determine whether to use patientList saved in localStorage from last initialization, turned off will request the list from cloud every time initializing
-let allowReadPatientsListFromLocal = false;
-
+let allowReadPatientsListFromLocal = true;
+let requestManually = false;
 function getPatients() {
 
     //If a copy of patientsList exist in localStorage, using it directly(May not be the most updated one, update feature can be implements in the future)
-    if (allowReadPatientsListFromLocal && localStorage.getItem("patientsList") != null) {
+    if (!requestManually && allowReadPatientsListFromLocal && localStorage.getItem("patientsList") != null) {
         try {
             PatientsListArray = JSON.parse(localStorage.getItem("patientsList"));
         } catch (e) {
@@ -27,17 +19,28 @@ function getPatients() {
         }
         return;
     }
-
+    
+    //Reinitialize patient array
+    PatientsListArray = [//All patients
+                          	[],
+                          //Starred
+                          	[]	];	
+    
+    requestManually=false;
+    
     //Show initialization page, blur the background
     $("#iniWindowBG")[0].style.visibility = "visible";
-
+    $("#iniWindowCurrentTask")[0].style.visibility = "visible";
+    $("#iniWindowBG")[0].style.opacity = "0.2";
+    $("#iniWindowCurrentTask")[0].style.opacity = "1";
+    
     iniWindowBlur(true);
 
     //Connecting to the API
     changeIniWindowText("Connecting to server...");
 
     const url = "http://husky1.azurewebsites.net/api/Patient/"; //To trust local, enter 'dotnet dev-certs https --trust' on the API side
-
+//    const url = "https://localhost:5001/api/Patient/";
     var xmlhttp = new XMLHttpRequest();
 
     function userAction() {
@@ -59,7 +62,7 @@ function getPatients() {
                       	numberOfUpdatingAttempts++;
                       } else {
                           changeIniWindowText("Achieved maximum number of attempts, updating failed");
-                          return;
+                          processReturnedData(myJson)
                       }
             	}
             }
@@ -79,20 +82,33 @@ function iniWindowBlur(bool) {
         $("#iniWindowCurrentTask")[0].style.visibility = "visible";
         let blurValue = "blur(3px)";
         $("#MenuPage_Title")[0].style.filter = blurValue;
+        $("#MenuPage_Title")[0].style.webkitFilter = blurValue;
         $("#MenuPage_CurrentTime")[0].style.filter = blurValue;
+        $("#MenuPage_CurrentTime")[0].style.webkitFilter = blurValue;
         $("#menuIcon_ALL")[0].style.filter = blurValue;
+        $("#menuIcon_ALL")[0].style.webkitFilter = blurValue;
         $("#menuIcon_Starred")[0].style.filter = blurValue;
+        $("#menuIcon_Starred")[0].style.webkitFilter = blurValue;
+        $("#synchronizeIcon")[0].style.filter = blurValue;
+        $("#synchronizeIcon")[0].style.webkitFilter = blurValue;
     } else {
         $("#MenuPage_Title")[0].style.filter = "none";
+        $("#MenuPage_Title")[0].style.webkitFilter = "none";
         $("#MenuPage_CurrentTime")[0].style.filter = "none";
+        $("#MenuPage_CurrentTime")[0].style.webkitFilter = "none";
         $("#menuIcon_ALL")[0].style.filter = "none";
+        $("#menuIcon_ALL")[0].style.webkitFilter = "none";
         $("#menuIcon_Starred")[0].style.filter = "none";
+        $("#menuIcon_Starred")[0].style.webkitFilter = "none";
+        $("#synchronizeIcon")[0].style.filter = "none";
+        $("#synchronizeIcon")[0].style.webkitFilter = "none";
     }
 }
 
 
 function processReturnedData(myJson) {
     if (myJson == "Failed to update") {
+    	closeInitWindow();
         return;
     }
     let patientsBasicInfo = extractPatientsBasicInfo(myJson);
@@ -107,7 +123,11 @@ function processReturnedData(myJson) {
         //Close iniWindow and remove Blur filter
 
     //Animation: tranfer the BG's Opacity to zero
-    tauAnimation('#iniWindowCurrentTask').tween({
+    closeInitWindow()
+}
+
+function closeInitWindow() {
+	tauAnimation('#iniWindowCurrentTask').tween({
         opacity: [1, 0]
     }, 1000);
     tauAnimation('#iniWindowBG').tween({

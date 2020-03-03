@@ -16,7 +16,7 @@
 </Reference>
 <Reference URI="author-signature.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>ayrPlqmd/uEL9x8Bz62BM0BohCfGWXxV9Ma91z8UoR4=</DigestValue>
+<DigestValue>KiTy/FUDgxa1+jPZkNUbt/SX/6Pcuu4A6bkE9hBrnaY=</DigestValue>
 </Reference>
 <Reference URI="config.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -24,11 +24,11 @@
 </Reference>
 <Reference URI="css%2Fmenu.css">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>OgAA4hWQp6Ku9zGAv3cam/0FsEqub5svEYZ9cVDHKZc=</DigestValue>
+<DigestValue>7bwiM1OsqgaSladShPiT8+OMc/8+0pX30ZgyXfpWL30=</DigestValue>
 </Reference>
 <Reference URI="css%2FpatientsList.css">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>8h6JOTZ+Vnbz2YZ+CCPPqjzBm7dcTK8iSpHVO9mfg5c=</DigestValue>
+<DigestValue>+DJeSaMiXRjnVCITZ5S0KVGjvaVnj2N5DTrrCETeguM=</DigestValue>
 </Reference>
 <Reference URI="css%2Ftau.css">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -41,6 +41,10 @@
 <Reference URI="icon.png">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
 <DigestValue>wbDFTZDAHXVts0m5vp5I+5lyGRJEeKbrCV69wxtmH6w=</DigestValue>
+</Reference>
+<Reference URI="image%2FSync.png">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>I4G1+F0T9UsbCDtdN5cKORD8qfTBDAnQr8UYCpz+8Fs=</DigestValue>
 </Reference>
 <Reference URI="image%2Ficon.psd">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -68,7 +72,7 @@
 </Reference>
 <Reference URI="index.html">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>x20l1fG7vawj9S2/gr/2pevhHTGEcKZV5JHu5695uK0=</DigestValue>
+<DigestValue>+AiKmMbk+XaMnsdq820BHkLB1unU3JuDYa24F7epBGE=</DigestValue>
 </Reference>
 <Reference URI="js%2FbackButtonEvents.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -76,7 +80,7 @@
 </Reference>
 <Reference URI="js%2FgetPatients.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>KiMQJk4BLdOOyEJ+GkGk/sW48NfByhNy9jkNKyC3BYc=</DigestValue>
+<DigestValue>KY76+Wh3SNOccuAjhXkG0jrFmelwajNWGW0whs8vNGc=</DigestValue>
 </Reference>
 <Reference URI="js%2FheadBar_Clock.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -88,11 +92,11 @@
 </Reference>
 <Reference URI="js%2FpatientsList.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>8rexPvukfSzC0cIhrnfwk+oQmKxXO0cuM+NPgqggt0M=</DigestValue>
+<DigestValue>xrBxxtLroRJhvIdOHFqYIAzqXUeNIL6LCGSqbnHS1DU=</DigestValue>
 </Reference>
 <Reference URI="js%2FrotaryEvent.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>j9arVg4e0+EVpeYWu7N+c3Mhni7zx2OZH9dlDPktUsg=</DigestValue>
+<DigestValue>PzIkZrHWV4WMoT5VLXywJxSZQ7OhDx4UwFqmrWE0Xyw=</DigestValue>
 </Reference>
 <Reference URI="js%2Ftau.animation.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -115,11 +119,11 @@
 </Reference>
 </SignedInfo>
 <SignatureValue>
-T/T/ItuFqifvniriQjLExoozN/zRGTOwrwVXHWUWWfqGSyFjowDAPqMraA+lCncDQtXR7o8t3NJk
-0ORG5ael/CHb/XFw1KtVNVkTIGVjIoU/W9t6/rkJR7OShJx8B6/GjxTSmJOanOoawpnEUCEr7TWY
-7NwC7qbm6pf+5MdVm2i9nNVsaiNo+njhJPtySknH7R9PEvg92KV6qV8zfPlPi60pIebkFnj/M5md
-4DbIh1Fk/JiN7p35ye2UHnW7+hyY3FvgHChP3H4eP6QlRvaVH1uPhGZMAPaB2kXJluc/4TjQ1AZp
-dLMsRnVbaW01mCIiCrklmG0abZ01I5PHjzT/GA==
+TLeT2R2uVrYJNv9kmUqNFg4AZrx2IsKySfUmMiqUekhnDUbTdTN4e+u1IWEgMp4SiBkA4/2cM/01
+bgaQbum1XU+Q++Yi2DZSDGjq18M5pnRoG8kRaVaHVxiN54GeBU5FtqgojkOcaf5LaAbI2kjnSFgI
+3bkhyhPDiqB3Haz1E81INBvpAiOKGwjzt5pCB/Jv9kIOx1i9KVAQ/897pNoVS5J29+UDyX9/iiSd
+P61+oiCXhsLkJft70NveiCRspzezEsqSmNeU72yjLsGDPwInexdcDpLyQVtvhZBAQ6nihiDtj6yC
+R3LjgKEtsSnvYTRYExsso0nDSj5Oj0P3SYu01A==
 </SignatureValue>
 <KeyInfo>
 <X509Data>

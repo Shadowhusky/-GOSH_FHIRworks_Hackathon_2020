@@ -28,6 +28,10 @@
 	                	<img class="menuIcons" id="menuIcon_ALL" src="image/menuIcons/menu_ALL.png" onclick="selectWorkSpaceType('All')"></img>
 	                	<img class="menuIcons" id="menuIcon_Starred" src="image/menuIcons/menu_Starred.png"  onclick="selectWorkSpaceType('Starred')"></img>
 	                </div>
+	                <img id="synchronizeIcon" src="image/Sync.png" onclick="new function(){
+		                requestManually=true;
+		                getPatients();}
+		                "></img>
 	            </div>
 	        </div>
 	    </div>
@@ -39,9 +43,9 @@
 	       <div class="container">
 	        <div class="background">
 	            <div class="components-main">
-	            	<p class="page_Title" id="WorkSpaceList_Page_Title">Type</p>
-	            	<p class="page_CurrentTime" id="WorkSpaceList_Page_CurrentTime">00:00</p>
-	                <div id="WorkSpaceList">	
+	            	<p class="page_Title" id="patientsList_Page_Title">Type</p>
+	            	<p class="page_CurrentTime" id="patientsList_Page_CurrentTime">00:00</p>
+	                <div id="patientsList">	
 	                	<!-- WorkSpace List-->
 	                </div>
 	               	<div id="FirstLetterNameSelector">

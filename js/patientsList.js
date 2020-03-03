@@ -5,91 +5,140 @@ var PatientsListArray = [//All patients
 
 var PatientsList_SelectedType=0;
 
-var WorkSpaceList_currentLetterCode = 'B'.charCodeAt(0);
+var patientsList_currentLetterCode = 'B'.charCodeAt(0);
 
 function init(){
 	updateWorkSpaceLetterSelector();
-	updateWorkSpaceList("B");
+	updatePatientsList("B");
 	addWorkSpaceListScrollEvent();
 }
 
 function addWorkSpaceListScrollEvent() {
 	
 	var scrollEvent = function(){
-		var scrollTop = document.getElementById("WorkSpaceList").scrollTop;
+		var scrollTop = document.getElementById("patientsList").scrollTop;
 		if(scrollTop>10) {
-			document.getElementById("WorkSpaceList_Page_Title").style.visibility="hidden";
-			document.getElementById("WorkSpaceList_Page_CurrentTime").style.visibility="hidden";
+			document.getElementById("patientsList_Page_Title").style.visibility="hidden";
+			document.getElementById("patientsList_Page_CurrentTime").style.visibility="hidden";
 		}else{
-			document.getElementById("WorkSpaceList_Page_Title").style.visibility="visible";
-			document.getElementById("WorkSpaceList_Page_CurrentTime").style.visibility="visible";
+			document.getElementById("patientsList_Page_Title").style.visibility="visible";
+			document.getElementById("patientsList_Page_CurrentTime").style.visibility="visible";
 		}
 	}
-	document.getElementById("WorkSpaceList").addEventListener("scroll", scrollEvent);
+	document.getElementById("patientsList").addEventListener("scroll", scrollEvent);
 	
 }
 
-function showWorkSpaceDetails(type,index) {
+function showPatientDetails(type,index) {
 //	tau.changePage("#patientDetailsPage");
 //	document.getElementById("patientDetailsPage").querySelector(".Details_Page_Position").innerHTML=PatientsListArray[type][index];
 }
 
-function updateWorkSpaceList(startLetter){
-	var container = document.getElementById("WorkSpaceList");
-	var top = "27.5vw";
-	container.innerHTML = "";
-	var selectedWorkSpaceList = PatientsListArray[PatientsList_SelectedType];
-	for(let i=0;i<selectedWorkSpaceList.length;i++){
+let holdTimer=0;
 
-		if(selectedWorkSpaceList[i].charAt(0)!=startLetter) continue;
-		var person = document.createElement("div");
-		var personName = document.createElement("p");
-		person.classList.add("workSpaceList_Background");
-		person.style.top = top;
-		person.addEventListener("click",function(){
+function updatePatientsList(startLetter){
+	var container = document.getElementById("patientsList");
+	var top = "29vw";
+	container.innerHTML = "";
+	var selectedPatientsList = PatientsListArray[PatientsList_SelectedType];
+	for(let i=0;i<selectedPatientsList.length;i++){
+		if(selectedPatientsList[i].charAt(0)!=startLetter) continue;
+		let patient = document.createElement("div");
+		let patientName = document.createElement("p");
+		patient.classList.add("patientsList_Background");
+		patient.style.top = top;
+		//If patient is starred, highlight it
+		if(PatientsListArray[1].includes(PatientsListArray[0][i])) {
+			patient.style.backgroundColor = "rgba(200, 200, 0, 0.35)";
+		}
+		
+		patient.addEventListener("click",function(){
 			showPatientDetails(PatientsList_SelectedType,i);
 		});
 		
-		personName.classList.add("workSpaceList_PersonName");
-		personName.innerHTML = selectedWorkSpaceList[i];
-		if(top == "27vw") personName.style.top = (parseInt(top)-5)+"vw";
-		else personName.style.top = (parseInt(top)-4.5)+"vw";
-		container.appendChild(personName);
-		container.appendChild(person);
-		top=(parseInt(top)+17.5)+"vw";
+		//Onhold event, hold to star a patient
+		patient.addEventListener("mousedown", function(){
+			patientsListMouseDown(patient, patientName, i);
+		});
+		patient.addEventListener("mouseup", patientsListMouseUp);
+		
+		patientName.addEventListener("mousedown", function(){
+			patientsListMouseDown(patient, patientName, i);
+		});
+		patientName.addEventListener("mouseup", patientsListMouseUp);
+
+		
+		patientName.classList.add("patientsList_patientName");
+		patientName.innerHTML = selectedPatientsList[i];
+		if(top == "29vw") patientName.style.top = (parseInt(top)-7.8)+"vw";
+		else patientName.style.top = (parseInt(top)-7.5)+"vw";
+		container.appendChild(patientName);
+		container.appendChild(patient);
+		top=(parseInt(top)+20)+"vw";
 	}
 }
 
-var WorkSpaceList_PreviousLetterElement = document.getElementById("patientsListPage").querySelector("#PreviousLetter");
-var WorkSpaceList_CurrentLetterElement = document.getElementById("patientsListPage").querySelector("#CurrentLetter");
-var WorkSpaceList_NextLetterElement = document.getElementById("patientsListPage").querySelector("#NextLetter");
+function patientsListMouseDown(patient, patientName, i) { 
+    holdTimer = setTimeout(function(){
+    	var t = tau.animation.target;
+    	t(patientName).tween('tada', 800);
+    	starPatient(patient, i);
+    },1000); //set timeout to fire in 2 seconds when the user presses mouse button down
+    
+}
+
+function patientsListMouseUp() { 
+	clearTimeout(holdTimer);  //cancel timer when mouse button is released
+}
+
+function starPatient(patient, index){
+	let patientStr = PatientsListArray[0][index];
+	if(PatientsListArray[1].includes(patientStr)) {
+		var i = PatientsListArray[1].indexOf(patientStr);
+	    if (i > -1) {
+	    	PatientsListArray[1].splice(i, 1);
+	    	patient.style.backgroundColor = "rgba(150,150,150,0.20);";
+	    }
+	    return;
+	}
+	patient.style.backgroundColor = "rgba(200, 200, 0, 0.35)";
+	//Push the index of starred patient
+	PatientsListArray[1].push(patientStr)
+	//Store the updated patientsList
+	localStorage.setItem("patientsList", JSON.stringify(PatientsListArray));
+}
+
+
+var patientsList_PreviousLetterElement = document.getElementById("patientsListPage").querySelector("#PreviousLetter");
+var patientsList_CurrentLetterElement = document.getElementById("patientsListPage").querySelector("#CurrentLetter");
+var patientsList_NextLetterElement = document.getElementById("patientsListPage").querySelector("#NextLetter");
 
 function updateWorkSpaceLetterSelector() {
-	if(WorkSpaceList_currentLetterCode < 'A'.charCodeAt(0)) {
-		WorkSpaceList_currentLetterCode = 'A'.charCodeAt(0);
+	if(patientsList_currentLetterCode < 'A'.charCodeAt(0)) {
+		patientsList_currentLetterCode = 'A'.charCodeAt(0);
 		return;
 	}
-	if(WorkSpaceList_currentLetterCode > 'Z'.charCodeAt(0)) {
-		WorkSpaceList_currentLetterCode = 'Z'.charCodeAt(0);
+	if(patientsList_currentLetterCode > 'Z'.charCodeAt(0)) {
+		patientsList_currentLetterCode = 'Z'.charCodeAt(0);
 		return;
 	}
-	var previousLetter = WorkSpaceList_currentLetterCode-1 < ( 'A'.charCodeAt(0) ) ? 32/*White space*/ : WorkSpaceList_currentLetterCode-1;
-	var NextLetter = WorkSpaceList_currentLetterCode+1 > ( 'Z'.charCodeAt(0) ) ? 32/*White space*/ : WorkSpaceList_currentLetterCode+1;
-	WorkSpaceList_PreviousLetterElement.innerHTML=String.fromCharCode(previousLetter);
-	WorkSpaceList_CurrentLetterElement.innerHTML=String.fromCharCode(WorkSpaceList_currentLetterCode);
-	WorkSpaceList_NextLetterElement.innerHTML=String.fromCharCode(NextLetter);
-	updateWorkSpaceList(String.fromCharCode(WorkSpaceList_currentLetterCode));
+	var previousLetter = patientsList_currentLetterCode-1 < ( 'A'.charCodeAt(0) ) ? 32/*White space*/ : patientsList_currentLetterCode-1;
+	var NextLetter = patientsList_currentLetterCode+1 > ( 'Z'.charCodeAt(0) ) ? 32/*White space*/ : patientsList_currentLetterCode+1;
+	patientsList_PreviousLetterElement.innerHTML=String.fromCharCode(previousLetter);
+	patientsList_CurrentLetterElement.innerHTML=String.fromCharCode(patientsList_currentLetterCode);
+	patientsList_NextLetterElement.innerHTML=String.fromCharCode(NextLetter);
+	updatePatientsList(String.fromCharCode(patientsList_currentLetterCode));
 }
 
 function iniWorkSpaceList(type) {
 	if(type=="All") {
 		PatientsList_SelectedType = 0;
-		document.getElementById("WorkSpaceList_Page_Title").innerHTML="All"
+		document.getElementById("patientsList_Page_Title").innerHTML="All"
 	}else if(type=="Starred") {
 		PatientsList_SelectedType = 1;
-		document.getElementById("WorkSpaceList_Page_Title").innerHTML="Starred"
+		document.getElementById("patientsList_Page_Title").innerHTML="Starred"
 	}
-	updateWorkSpaceList(String.fromCharCode(WorkSpaceList_currentLetterCode));
+	updatePatientsList(String.fromCharCode(patientsList_currentLetterCode));
 }
 
 function selectWorkSpaceType(type) {
