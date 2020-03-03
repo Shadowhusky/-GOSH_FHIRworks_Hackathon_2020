@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<widget xmlns="http://www.w3.org/ns/widgets" xmlns:tizen="http://tizen.org/ns/widgets" id="http://yourdomain/patientPE" version="1.0.1" viewmodes="fullscreen">
+<widget xmlns:tizen="http://tizen.org/ns/widgets" xmlns="http://www.w3.org/ns/widgets" id="http://yourdomain/patientPE" version="1.0.2" viewmodes="fullscreen">
     <tizen:application id="xJz775YiFG.SpinningArrow" package="xJz775YiFG" required_version="2.3"/>
     <content src="index.html"/>
     <feature name="http://tizen.org/feature/screen.size.all"/>
     <icon src="MacOS_AppStore.png"/>
-    <name>FHIRworksHackathon</name>
+    <name>patientPE</name>
     <tizen:profile name="wearable"/>
 </widget>

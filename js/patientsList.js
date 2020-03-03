@@ -38,7 +38,7 @@ let holdTimer=0;
 
 function updatePatientsList(startLetter){
 	var container = document.getElementById("patientsList");
-	var top = "29vw";
+	var top = "22vw";
 	container.innerHTML = "";
 	var selectedPatientsList = PatientsListArray[PatientsList_SelectedType];
 	for(let i=0;i<selectedPatientsList.length;i++){
@@ -57,21 +57,20 @@ function updatePatientsList(startLetter){
 		});
 		
 		//Onhold event, hold to star a patient
-		patient.addEventListener("mousedown", function(){
+		patient.addEventListener("touchstart", function(){
 			patientsListMouseDown(patient, patientName, i);
 		});
-		patient.addEventListener("mouseup", patientsListMouseUp);
+		patient.addEventListener("touchend", patientsListMouseUp);
 		
-		patientName.addEventListener("mousedown", function(){
+		patientName.addEventListener("touchstart", function(){
 			patientsListMouseDown(patient, patientName, i);
 		});
-		patientName.addEventListener("mouseup", patientsListMouseUp);
+		patientName.addEventListener("touchend", patientsListMouseUp);
 
 		
 		patientName.classList.add("patientsList_patientName");
 		patientName.innerHTML = selectedPatientsList[i];
-		if(top == "29vw") patientName.style.top = (parseInt(top)-7.8)+"vw";
-		else patientName.style.top = (parseInt(top)-7.5)+"vw";
+		patientName.style.top = (parseInt(top)+0.8)+"vw";
 		container.appendChild(patientName);
 		container.appendChild(patient);
 		top=(parseInt(top)+20)+"vw";
@@ -80,9 +79,7 @@ function updatePatientsList(startLetter){
 
 function patientsListMouseDown(patient, patientName, i) { 
     holdTimer = setTimeout(function(){
-    	var t = tau.animation.target;
-    	t(patientName).tween('tada', 800);
-    	starPatient(patient, i);
+    	starPatient(patient, patientName, i);
     },1000); //set timeout to fire in 2 seconds when the user presses mouse button down
     
 }
@@ -91,13 +88,27 @@ function patientsListMouseUp() {
 	clearTimeout(holdTimer);  //cancel timer when mouse button is released
 }
 
-function starPatient(patient, index){
+function starPatient(patient, patientName, index){
+	var t = tau.animation.target;
+	if(PatientsList_SelectedType==1) {
+		PatientsListArray[1].splice(index, 1);
+    	//Store the updated patientsList
+    	localStorage.setItem("patientsList", JSON.stringify(PatientsListArray));
+    	t(patient).tween('zoomOut', 500);
+    	t(patientName).tween('zoomOut', 500);
+    	return;
+	}
+	//Starring animation
+	t(patientName).tween('tada', 800);
 	let patientStr = PatientsListArray[0][index];
 	if(PatientsListArray[1].includes(patientStr)) {
 		var i = PatientsListArray[1].indexOf(patientStr);
 	    if (i > -1) {
 	    	PatientsListArray[1].splice(i, 1);
-	    	patient.style.backgroundColor = "rgba(150,150,150,0.20);";
+	    	//Store the updated patientsList
+	    	localStorage.setItem("patientsList", JSON.stringify(PatientsListArray));
+	    	//Reset the background
+	    	patient.style.backgroundColor = "rgba(150, 150, 150, 0.2)";
 	    }
 	    return;
 	}

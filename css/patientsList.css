@@ -34,8 +34,7 @@
 	position: absolute;
     width: 56vw;
     height: 16.6vh;
-	transform: translateX(-50%) translateY(-50%);
-	left: 50%;
+	left: 22%;
 	border-radius: 4vw;
 }
 

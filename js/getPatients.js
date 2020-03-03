@@ -5,6 +5,8 @@ let limitOfAttempts = 3;
 //Determine whether to use patientList saved in localStorage from last initialization, turned off will request the list from cloud every time initializing
 let allowReadPatientsListFromLocal = true;
 let requestManually = false;
+
+let patientsBasicInfo;
 function getPatients() {
 
     //If a copy of patientsList exist in localStorage, using it directly(May not be the most updated one, update feature can be implements in the future)
@@ -19,12 +21,6 @@ function getPatients() {
         }
         return;
     }
-    
-    //Reinitialize patient array
-    PatientsListArray = [//All patients
-                          	[],
-                          //Starred
-                          	[]	];	
     
     requestManually=false;
     
@@ -62,7 +58,7 @@ function getPatients() {
                       	numberOfUpdatingAttempts++;
                       } else {
                           changeIniWindowText("Achieved maximum number of attempts, updating failed");
-                          processReturnedData(myJson)
+                          processReturnedData("Failed to update");
                       }
             	}
             }
@@ -111,7 +107,12 @@ function processReturnedData(myJson) {
     	closeInitWindow();
         return;
     }
-    let patientsBasicInfo = extractPatientsBasicInfo(myJson);
+    //Reinitialize patient array
+    PatientsListArray = [//All patients
+                          	[],
+                          //Starred
+                          	[]	];	
+    patientsBasicInfo = extractPatientsBasicInfo(myJson);
     changeIniWindowText("Extracting patients name...");
     //Extract patients' given name to list
     for (let i in patientsBasicInfo) {
