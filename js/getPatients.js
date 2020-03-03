@@ -7,7 +7,25 @@ let patientsBasicInfo =
 
 function getPatients() {
 	
-	const url = "https://178.62.0.181:5001/api/Patient/";
+	//If a copy of patientsList exist in localStorage, using it directly(May not be the most updated one, update feature can be implements in the future)
+	if(localStorage.getItem("patientsList")!=null) {
+		try{
+			PatientsListArray = JSON.parse(localStorage.getItem("patientsList"));
+		}catch (e) {
+			if(e instanceof SyntaxError) {
+				//JSON format error
+				localStorage.removeItem("patientsList");
+			}
+		}
+		return;
+	}
+	
+	//Show initialization page, blur the background
+	$("#iniWindowBG")[0].style.visibility = "visible";
+	
+	iniWindowBlur(true);
+		
+	const url = "https://husky1.azurewebsites.net/api/Patient/";	//To trust local, enter 'dotnet dev-certs https --trust' on the API side
 	
     const userAction = async () => {
 
@@ -27,13 +45,33 @@ function getPatients() {
         
 }
 
+function iniWindowBlur(bool) {
+	if(bool) {
+		$("#MenuPage_Title")[0].style.filter="blur(2px)";
+		$("#MenuPage_CurrentTime")[0].style.filter="blur(2px)";
+		$("#menuIcon_ALL")[0].style.filter="blur(2px)";
+		$("#menuIcon_Starred")[0].style.filter="blur(2px)";
+	}else{
+		$("#MenuPage_Title")[0].style.filter="none";
+		$("#MenuPage_CurrentTime")[0].style.filter="none";
+		$("#menuIcon_ALL")[0].style.filter="none";
+		$("#menuIcon_Starred")[0].style.filter="none";
+	}
+}
+
+
 function processReturnedData(myJson) {
     let patientsBasicInfo = extractPatientsBasicInfo(myJson);
     console.log(patientsBasicInfo);
     //Extract patients' given name to list
     for(let i in patientsBasicInfo) {
-    	workSpaceListArray[0].push(patientsBasicInfo[i].name[0].given[0]);
+    	PatientsListArray[0].push(patientsBasicInfo[i].name[0].given[0]);
     }
+    //Store patientsList in local storage
+    localStorage.setItem("patientsList", JSON.stringify(PatientsListArray))
+    //Close iniWindow and remove Blur filter
+    $("#iniWindowBG")[0].style.visibility = "hidden";
+    iniWindowBlur(false);
  }
 
 function extractPatientsBasicInfo(myJson) {

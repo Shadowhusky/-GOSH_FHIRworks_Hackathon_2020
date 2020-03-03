@@ -8,22 +8,22 @@
   	<link rel="stylesheet" href="css/tau.css"/>
 
   	<link rel="stylesheet" type="text/css" href="css/watch.css" />
-    <link rel="stylesheet" type="text/css" href="css/workSpace.css" />
-    <link rel="stylesheet" type="text/css" href="css/workSpaceList.css" />
+    <link rel="stylesheet" type="text/css" href="css/menu.css" />
+    <link rel="stylesheet" type="text/css" href="css/patientsList.css" />
 </head>
 
 <body>
-	<div class="ui-page ui-page-active" id="workplaceType">
+	<div class="ui-page ui-page-active" id="menuPage">
 	   <div class="ui-content">
 	       <div class="container">
 	        <div class="background">
 	            <div class="components-main">
-	            	<p class="page_Title" id="PeopleList_Page_Title">Menu</p>
-	            	<p class="page_CurrentTime" id="PeopleList_Page_CurrentTime">00:00</p>
+	            	<p class="page_Title" id="MenuPage_Title">Menu</p>
+	            	<p class="page_CurrentTime" id="MenuPage_CurrentTime">00:00</p>
+	            	<img id="iniWindowBG" src="image/iniWindow.png">
 	                <div>	<!-- WorkSpace Type Icons -->
-	                	<img class="menuIcons" id="menuIcon_Patients" src="image/menuIcons/Patients.png" onclick="selectWorkSpaceType('Rest')"></img>
-	                	<img class="menuIcons" id="menuIcon_Search" src="image/menuIcons/Search.png" onclick="selectWorkSpaceType('Work')"></img>
-	                	<img class="menuIcons" id="menuIcon_Saved" src="image/menuIcons/Saved.png"  onclick="selectWorkSpaceType('Fav')"></img>
+	                	<img class="menuIcons" id="menuIcon_ALL" src="image/menuIcons/menu_ALL.png" onclick="selectWorkSpaceType('All')"></img>
+	                	<img class="menuIcons" id="menuIcon_Starred" src="image/menuIcons/menu_Starred.png"  onclick="selectWorkSpaceType('Starred')"></img>
 	                </div>
 	            </div>
 	        </div>
@@ -31,7 +31,7 @@
 	   </div>
 	</div>
 	
-	<div class="ui-page" id="workplaceListPage">
+	<div class="ui-page" id="patientsListPage">
 	   <div class="ui-content">
 	       <div class="container">
 	        <div class="background">
@@ -56,9 +56,10 @@
     
  	<script type="text/javascript" src="js/tau.js"></script>
  	
-
+ 	<script src="js/jquery-3.4.1.min.js"></script>
+ 	<script src="js/headBar_Clock.js"></script>
     <script src="js/rotaryEvent.js"></script>
-    <script src="js/workSpaceList.js"></script>
+    <script src="js/patientsList.js"></script>
     <script src="js/backButtonEvents.js"></script>
     <script src="js/getPatients.js"></script>
     

@@ -1,12 +1,12 @@
 function rotateCW() {
-		if(document.getElementById("workplaceListPage").classList.contains("ui-page-active")) {
+		if(document.getElementById("patientsListPage").classList.contains("ui-page-active")) {
 			WorkSpaceList_currentLetterCode++;
 			updateWorkSpaceLetterSelector();
 		}
 	}
 	
 	function rotateCCW() {
-		if(document.getElementById("workplaceListPage").classList.contains("ui-page-active")) {
+		if(document.getElementById("patientsListPage").classList.contains("ui-page-active")) {
 			WorkSpaceList_currentLetterCode--;
 			updateWorkSpaceLetterSelector();
 		}
