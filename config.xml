@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<widget xmlns:tizen="http://tizen.org/ns/widgets" xmlns="http://www.w3.org/ns/widgets" id="http://yourdomain/patientPE" version="1.0.2" viewmodes="fullscreen">
-    <tizen:application id="xJz775YiFG.SpinningArrow" package="xJz775YiFG" required_version="2.3"/>
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:tizen="http://tizen.org/ns/widgets" id="http://yourdomain/patientPE" version="1.0.2" viewmodes="fullscreen">
+    <tizen:application id="mo2lNaAMvr.patientPE" package="mo2lNaAMvr" required_version="2.3"/>
     <content src="index.html"/>
     <feature name="http://tizen.org/feature/screen.size.all"/>
     <icon src="MacOS_AppStore.png"/>
     <name>patientPE</name>
+    <tizen:privilege name="http://tizen.org/privilege/internet"/>
+    <tizen:privilege name="http://tizen.org/privilege/wifidirect"/>
     <tizen:profile name="wearable"/>
+    <tizen:setting background-support="disable" encryption="disable" hwkey-event="enable"/>
 </widget>

@@ -1,0 +1,19 @@
+#patientDetailsList {
+	position: absolute;
+    width: 85%;
+    left: 50%;
+    top: 22%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+.patientDetailsListItem_Key {
+	font-size: 22px;
+    color: lawngreen;
+    font-variant: all-petite-caps;
+}
+
+.patientDetailsListItem_Value {
+	margin: 7px 0 5px 0;
+	font-size: 18px;
+}

@@ -1,11 +1,23 @@
-var PatientsListArray = [//All patients
-                         	[],
-                         //Starred
-                         	[]	];	
+var PatientsListArray_Default = [//All patients' given name
+                            		[],
+        	                    //Starred
+        	                    	[]	,
+        	                    //Starred index
+        	                    	[]	];	
+
+var PatientsListArray = [//All patients' given name
+                       		[],
+	                    //Starred
+	                    	[]	,
+	                    //Starred index
+	                    	[]	];	
 
 var PatientsList_SelectedType=0;
 
 var patientsList_currentLetterCode = 'B'.charCodeAt(0);
+
+//Determine wether the hold timer is beening triggered
+var holdTimerStatus = false;
 
 function init(){
 	updateWorkSpaceLetterSelector();
@@ -29,9 +41,44 @@ function addWorkSpaceListScrollEvent() {
 	
 }
 
-function showPatientDetails(type,index) {
-//	tau.changePage("#patientDetailsPage");
-//	document.getElementById("patientDetailsPage").querySelector(".Details_Page_Position").innerHTML=PatientsListArray[type][index];
+function showPatientDetails(index) {
+	if(patientsBasicInfo[index] == null) {
+		return;
+	}
+	//Extract and display patient's details
+	let identifiers  = patientsBasicInfo[index].identifier;
+	
+	let detailsList = $("#patientDetailsList")[0];
+	
+	let listCreated = false;
+	if(detailsList.childElementCount>0) listCreated = true;
+	for(let i=1; i<5; i++) {
+		let detail = null;
+		if(listCreated) {
+			let j = (i-1)*2;
+			detail = detailsList.children[j];
+			detailValue = detailsList.children[j+1];
+		} else {
+			detail = document.createElement("li");
+			detail.classList.add("patientDetailsListItem_Key");
+			
+			detailValue = document.createElement("li");
+			detailValue.classList.add("patientDetailsListItem_Value");
+			
+			detailsList.appendChild(detail);
+			detailsList.appendChild(detailValue);
+		}
+		if(identifiers[i] == null)	{
+			detail.innerHTML = "";
+			detailValue.innerHTML = "";
+		} else {
+			detail.innerHTML = identifiers[i].type.text+":";
+			detailValue.innerHTML = identifiers[i].value
+		}
+	}
+	
+	tau.changePage("#patientDetailsPage");
+
 }
 
 let holdTimer=0;
@@ -52,22 +99,17 @@ function updatePatientsList(startLetter){
 			patient.style.backgroundColor = "rgba(200, 200, 0, 0.35)";
 		}
 		
-		patient.addEventListener("click",function(){
-			showPatientDetails(PatientsList_SelectedType,i);
-		});
-		
 		//Onhold event, hold to star a patient
 		patient.addEventListener("touchstart", function(){
 			patientsListMouseDown(patient, patientName, i);
 		});
-		patient.addEventListener("touchend", patientsListMouseUp);
+		patient.addEventListener("touchend", () => {patientsListMouseUp(i);});
 		
 		patientName.addEventListener("touchstart", function(){
 			patientsListMouseDown(patient, patientName, i);
 		});
-		patientName.addEventListener("touchend", patientsListMouseUp);
+		patientName.addEventListener("touchend", () => {patientsListMouseUp(i);});
 
-		
 		patientName.classList.add("patientsList_patientName");
 		patientName.innerHTML = selectedPatientsList[i];
 		patientName.style.top = (parseInt(top)+0.8)+"vw";
@@ -78,13 +120,18 @@ function updatePatientsList(startLetter){
 }
 
 function patientsListMouseDown(patient, patientName, i) { 
+	holdTimerStatus = true;
     holdTimer = setTimeout(function(){
     	starPatient(patient, patientName, i);
+    	holdTimerStatus = false;
     },1000); //set timeout to fire in 2 seconds when the user presses mouse button down
     
 }
 
-function patientsListMouseUp() { 
+function patientsListMouseUp(i) { 
+	if(holdTimerStatus === true) {
+		PatientsList_SelectedType == 0 ? showPatientDetails(i) : showPatientDetails(PatientsListArray[2][i]);
+	}
 	clearTimeout(holdTimer);  //cancel timer when mouse button is released
 }
 
@@ -115,6 +162,7 @@ function starPatient(patient, patientName, index){
 	patient.style.backgroundColor = "rgba(200, 200, 0, 0.35)";
 	//Push the index of starred patient
 	PatientsListArray[1].push(patientStr)
+	PatientsListArray[2].push(index);
 	//Store the updated patientsList
 	localStorage.setItem("patientsList", JSON.stringify(PatientsListArray));
 }

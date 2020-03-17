@@ -16,15 +16,15 @@
 </Reference>
 <Reference URI="config.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>r7WgUdOzqSGk1SJBw7aI+eQSiIrEcYy2Ra+wZDFHXc8=</DigestValue>
+<DigestValue>FK2jMn1Ols74zfspNjIa7TKY4ZbMdDkVc3YN5/CX0fU=</DigestValue>
 </Reference>
 <Reference URI="css%2Fmenu.css">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>7bwiM1OsqgaSladShPiT8+OMc/8+0pX30ZgyXfpWL30=</DigestValue>
+<DigestValue>J6UDe9slNcjR71kOxlpSdy19itxPTUlAHNP67jp9LuU=</DigestValue>
 </Reference>
 <Reference URI="css%2FpatientsList.css">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>+DJeSaMiXRjnVCITZ5S0KVGjvaVnj2N5DTrrCETeguM=</DigestValue>
+<DigestValue>GMKeOS+u6wu+NOTLT1pufleZRktWTL74IDZS6SJZchU=</DigestValue>
 </Reference>
 <Reference URI="css%2Ftau.css">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -68,7 +68,7 @@
 </Reference>
 <Reference URI="index.html">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>+AiKmMbk+XaMnsdq820BHkLB1unU3JuDYa24F7epBGE=</DigestValue>
+<DigestValue>9sgo8oSeNTgSbq96NaDv1A6tKJYSNefNmJhLW6nTxWY=</DigestValue>
 </Reference>
 <Reference URI="js%2FbackButtonEvents.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -76,7 +76,7 @@
 </Reference>
 <Reference URI="js%2FgetPatients.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>KY76+Wh3SNOccuAjhXkG0jrFmelwajNWGW0whs8vNGc=</DigestValue>
+<DigestValue>mQxmsaKuT6nlTwoGB6tHPOc9sERQqw3XGGqur8hFQc4=</DigestValue>
 </Reference>
 <Reference URI="js%2FheadBar_Clock.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -88,7 +88,7 @@
 </Reference>
 <Reference URI="js%2FpatientsList.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>xrBxxtLroRJhvIdOHFqYIAzqXUeNIL6LCGSqbnHS1DU=</DigestValue>
+<DigestValue>Dm/xZYNIIakzQxnB5WJ8WFDCPpC+YQl/KFPedNjLb7k=</DigestValue>
 </Reference>
 <Reference URI="js%2FrotaryEvent.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -115,11 +115,11 @@
 </Reference>
 </SignedInfo>
 <SignatureValue>
-jGrdLXeEfbE3mTC1aulwZShh9ei2++P9DQBicAUIEMWkKCpJjwIzHFXyLGVtgeb4SWyNL1KJQtt6
-+6Jz/sDXKJYRwVhv/IrreMVSi6xLSAmddwPcqwCykCt2yFAwkNVKujQkM0vmBQ1jToPD6NiUqepT
-Y3p/LMs0DsBaLgKrWwR+arMZ942Sx9TwlWRVtQI4WZoR5sBdIprHwFVZ2HLBqSPXMjQlGFcA3E4f
-i2C8GPtgPxFhTRglwxWhhYbtVXZIthuUhoVDq/nbLMWCXv3RHrGx8G9y/TU0onEt5Bs2ryglwMHe
-R4RFXThaMxTS63kFSO4fYQuSLv+Ys63v+BZGEg==
+TFk8h6T4X/K9SbfxOXW6kZwv3zZRMzdRB4HTcN+e/gkchD1m0c0TqyX1uLEPm5db0dOZ9z19/SPF
+y3TnaCx5x12+1INTx9saOgIPZ3bxsk/YAHsHP0Kt7lsbdqhEvu0xGP0VeiYi3klzXIUlPE1LqWMV
+2SZbSiA/MMJiU8DdYJJSstFmx7DM0bVuQ8qBltqmINkfsGwJmz4yQSVKIi66HcAb8R7PHCUrlZ0o
+d6Xe8Y3IEs8pSIhv/PIVxQaup+eC+jMfzJ9OM0NVcPKPu4ajJTHym6EK/R27nOIfjbtUW23uMZaM
+ZxUpO4kUwpDwFMSaTHFDWnBQ4O8YMrTxpCRcmA==
 </SignatureValue>
 <KeyInfo>
 <X509Data>
