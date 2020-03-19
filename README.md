@@ -1,7 +1,9 @@
 # **GOSH_FHIRworks_Hackathon_2020**
 
+## *Project name*:PatientPE👩‍⚕️
 
-# *Project name*:PatientPE👩‍⚕️
+**Device:** *Samsung Galaxy Watch Active2*
+
 ![Main Menu](https://github.com/Shadowhusky/-GOSH_FHIRworks_Hackathon_2020/blob/master/image/README/Main.png?raw=true)
 
 
