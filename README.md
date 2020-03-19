@@ -2,7 +2,7 @@
 
 
 # *Project name*:PatientPE👩‍⚕️
-![Main Menu](C:\Users\Ricahrd Liao\Desktop\Unfinished courseworks\Hackathon\-GOSH_FHIRworks_Hackathon_2020\image\README\Main.png)
+![Main Menu](https://github.com/Shadowhusky/-GOSH_FHIRworks_Hackathon_2020/blob/master/image/README/Main.png?raw=true)
 
 
 
@@ -13,12 +13,12 @@
 # **Main functions:**
 
 ## 1. Star patients 
-![Star](C:\Users\Ricahrd Liao\Desktop\Unfinished courseworks\Hackathon\-GOSH_FHIRworks_Hackathon_2020\image\README\Star.gif)
+![Star](https://github.com/Shadowhusky/-GOSH_FHIRworks_Hackathon_2020/blob/master/image/README/Star.gif?raw=true)
 
 ## 2. Check patients details
 
-![See Details](C:\Users\Ricahrd Liao\Desktop\Unfinished courseworks\Hackathon\-GOSH_FHIRworks_Hackathon_2020\image\README\See Details.gif)
+![See Details](https://github.com/Shadowhusky/-GOSH_FHIRworks_Hackathon_2020/blob/master/image/README/See%20Details.gif?raw=true)
 
 ## 3.Update patients details：
 
-![Update](C:\Users\Ricahrd Liao\Desktop\Unfinished courseworks\Hackathon\-GOSH_FHIRworks_Hackathon_2020\image\README\Update.gif)
+![Update](https://github.com/Shadowhusky/-GOSH_FHIRworks_Hackathon_2020/blob/master/image/README/Update.gif?raw=true)
